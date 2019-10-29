@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1427531952525483458}
   - component: {fileID: 3947115355350467364}
   - component: {fileID: 8261034866449918204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LetterTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Letter: A
-  pickedOffset: {x: 0, y: 2, z: 0}
 --- !u!1 &1427531952975187974
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +71,7 @@ GameObject:
   - component: {fileID: 1427531952975187977}
   - component: {fileID: 1427531952975187978}
   - component: {fileID: 1427531952975187979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +151,7 @@ GameObject:
   - component: {fileID: 2779921078792064024}
   - component: {fileID: 5738992894212198006}
   - component: {fileID: 8685611049821756286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

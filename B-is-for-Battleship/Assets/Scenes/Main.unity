@@ -521,7 +521,7 @@ PrefabInstance:
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.59
+      value: -8.999022
       objectReference: {fileID: 0}
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
@@ -531,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.000003546476
       objectReference: {fileID: 0}
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
@@ -541,7 +541,7 @@ PrefabInstance:
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
@@ -556,7 +556,7 @@ PrefabInstance:
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180.00002
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 1832017449319554804, guid: d4c649f8543ac074e9f10e702752a642,
         type: 3}
@@ -705,6 +705,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314105841682124410, guid: e28125e69a748f441b4785c94638ed0e,
+        type: 3}
+      propertyPath: tileHoverHeight
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28125e69a748f441b4785c94638ed0e, type: 3}
