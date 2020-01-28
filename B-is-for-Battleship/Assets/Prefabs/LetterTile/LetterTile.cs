@@ -4,15 +4,15 @@ using UnityEngine.Assertions;
 
 public class LetterTile : MonoBehaviour {
     public string Letter;
-    public ITileHolder LastTileHolder;
+    public TileHolder LastTileHolder;
 
     private TextMeshPro letterDisplay;
-    private ITileHolder holder = null;
+    private TileHolder holder = null;
 
     // Start is called before the first frame update
     void Start() {
         letterDisplay = GetComponentInChildren<TextMeshPro>();
-        Assert.IsNotNull(letterDisplay, "No TMP in LetterTile!");
+        Assert.IsNotNull(letterDisplay, "No TextMeshPro in LetterTile!");
         letterDisplay.text = Letter;
     }
 
@@ -27,7 +27,7 @@ public class LetterTile : MonoBehaviour {
         Letter = letter;
     }
 
-    public void Place(ITileHolder holder) {
+    public void Place(TileHolder holder) {
         this.holder = holder;
     }
 }

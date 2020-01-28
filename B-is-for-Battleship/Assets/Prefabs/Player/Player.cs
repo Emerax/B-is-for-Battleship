@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 
 public class Player : MonoBehaviour {
-    public float tileHoverHeight;
-
-    private static readonly string BOARD_TILE_NAME = "BoardTile";
-    private static readonly string TILE_TRAY_NAME = "TileTray";
     private LetterTile pickedTile;
 
     // Update is called once per frame
@@ -20,7 +16,6 @@ public class Player : MonoBehaviour {
             layerMask = ~(1 << 8);
         }
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) {
-            Debug.Log("Hit: " + hit.collider.gameObject.name);
             if (Input.GetMouseButtonDown(0)) {
                 LeftMouseDown(hit);
             }
@@ -29,6 +24,11 @@ public class Player : MonoBehaviour {
             }
             if (Input.GetMouseButtonUp(0)) {
                 LeftMouseReleased(hit);
+            }
+        } else {
+            if (Input.GetMouseButtonUp(0)) {
+                //Last resort if the player releases left mouse outside the play area.
+                LeftMouseReleased();
             }
         }
     }
@@ -43,38 +43,38 @@ public class Player : MonoBehaviour {
 
     private void LeftMouseHeld(RaycastHit hit) {
         if (pickedTile != null) {
-            if (hit.collider.gameObject.name == BOARD_TILE_NAME) {
-                //Hovering over game board square.
-                Vector3 newPos = hit.collider.transform.position;
-                newPos.y = tileHoverHeight;
-                pickedTile.transform.position = newPos;
-                //TODO: Make tiles/board ITileHolder pickedTile.LastTileHolder = 
-            } else if (hit.collider.gameObject.name == TILE_TRAY_NAME) {
-                //Hovering over tile tray.
-                TileTray tray = hit.collider.transform.parent.GetComponent<TileTray>();
-                Vector3 newPos = hit.collider.transform.position;
-                //Debug.Log(hit.point.x + 0.5f + " " + Mathf.FloorToInt(hit.point.x + 0.5f));
-                newPos.x = Mathf.FloorToInt(hit.point.x + 0.5f);
-                newPos.y = tileHoverHeight;
-                pickedTile.transform.position = newPos;
-                pickedTile.LastTileHolder = tray;
-
-                tray.OnTileHover(pickedTile);
+            TileHolder holder = hit.collider.gameObject.GetComponent<TileHolder>();
+            if (holder != null) {
+                holder.OnTileHover(pickedTile, hit);
+                pickedTile.LastTileHolder = holder;
             }
         }
     }
 
+    //TODO: Disable placing placing several letters on the same tile.
+
     private void LeftMouseReleased(RaycastHit hit) {
         if (pickedTile != null) {
-            if(hit.collider.gameObject.name == TILE_TRAY_NAME) {
-                //Released over tile tray.
-                TileTray tray = hit.collider.transform.parent.GetComponent<TileTray>();
-                tray.PlaceTile(pickedTile, Mathf.FloorToInt(pickedTile.transform.position.x + 3));
+            TileHolder holder = hit.collider.gameObject.GetComponent<TileHolder>();
+            if(holder != null) {
+                holder.PlaceTile(pickedTile, hit);
             } else {
-                pickedTile.LastTileHolder.PlaceTile(pickedTile);
+                // Drop held tile on last known TileHolder.
+                pickedTile.LastTileHolder.PlaceTile(pickedTile, hit);
             }
             pickedTile.Delesect();
         }
         pickedTile = null;
+    }
+
+    /// <summary>
+    /// Overload for when there is no hit point to use. Drop held tile on last seen board tile immediately.
+    /// </summary>
+    private void LeftMouseReleased() {
+        if (pickedTile != null) {
+            pickedTile.LastTileHolder.PlaceTile(pickedTile, new RaycastHit());
+            pickedTile.Delesect();
+            pickedTile = null;
+        }
     }
 }

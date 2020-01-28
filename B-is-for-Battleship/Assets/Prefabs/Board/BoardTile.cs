@@ -1,27 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class BoardTile : MonoBehaviour, ITileHolder {
+public class BoardTile : TileHolder {
+    private Board board;
+
     private LetterTile tile = null;
 
-    // Start is called before the first frame update
-    void Start() {
-
+    public void Init(Board board) {
+        this.board = board;
     }
 
-    // Update is called once per frame
-    void Update() {
-
+    public override string ToString() {
+        return (tile != null) ? "[" + tile.ToString() + "]" : "[ ]";
     }
 
-    public void PlaceTile(LetterTile tile) {
-
+    public override void PlaceTile(LetterTile tile, RaycastHit hit) {
+        Vector3 newPos = transform.position;
+        newPos.y = transform.position.y + transform.lossyScale.y / 2;
+        tile.transform.position = newPos;
+        tile.Place(this);
     }
 
-    public void RemoveTile(LetterTile tile) {
-
+    public override void RemoveTile(LetterTile tile) {
     }
 
-
+    public override void OnTileHover(LetterTile tile, RaycastHit hit) {
+        Vector3 newPos = transform.position;
+        newPos.y = tileHoverHeight;
+        tile.transform.position = newPos;
+    }
 }

@@ -568,7 +568,8 @@ PrefabInstance:
       propertyPath: tilePile
       value: 
       objectReference: {fileID: 1474505090}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1832017448576289869, guid: d4c649f8543ac074e9f10e702752a642, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d4c649f8543ac074e9f10e702752a642, type: 3}
 --- !u!1001 &1833211547884454948
 PrefabInstance:
