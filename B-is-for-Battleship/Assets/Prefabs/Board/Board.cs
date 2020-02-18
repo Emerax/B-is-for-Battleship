@@ -19,7 +19,7 @@ public class Board : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //Debug.Log(ToString());
+        Debug.Log(ToString());
     }
 
     public override string ToString() {

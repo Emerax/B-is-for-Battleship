@@ -46,21 +46,23 @@ public class Player : MonoBehaviour {
             TileHolder holder = hit.collider.gameObject.GetComponent<TileHolder>();
             if (holder != null) {
                 holder.OnTileHover(pickedTile, hit);
-                pickedTile.LastTileHolder = holder;
+                if (holder.Vacant()) {
+                    pickedTile.LastTileHolder = holder;
+                }
             }
         }
     }
 
-    //TODO: Disable placing placing several letters on the same tile.
-
     private void LeftMouseReleased(RaycastHit hit) {
         if (pickedTile != null) {
             TileHolder holder = hit.collider.gameObject.GetComponent<TileHolder>();
-            if(holder != null) {
+            if(holder != null && holder.Vacant()) {
                 holder.PlaceTile(pickedTile, hit);
+                pickedTile.OnPlaced(holder);
             } else {
                 // Drop held tile on last known TileHolder.
                 pickedTile.LastTileHolder.PlaceTile(pickedTile, hit);
+                pickedTile.OnPlaced(pickedTile.LastTileHolder);
             }
             pickedTile.Delesect();
         }

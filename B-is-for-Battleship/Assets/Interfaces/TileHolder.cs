@@ -25,4 +25,10 @@ public abstract class TileHolder : MonoBehaviour {
     /// <param name="tile"></param>
     /// <param name="hit">Optional hit info for placing the tile</param>
     public abstract void OnTileHover(LetterTile tile, RaycastHit hit);
+
+    /// <summary>
+    /// Indicates wheter a new tile can be placed on this tile holder.
+    /// </summary>
+    /// <returns>True if a new tile will be accepted by this holder, false otherwise</returns>
+    public abstract bool Vacant();
 }

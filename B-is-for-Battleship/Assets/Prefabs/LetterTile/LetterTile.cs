@@ -6,8 +6,8 @@ public class LetterTile : MonoBehaviour {
     public string Letter;
     public TileHolder LastTileHolder;
 
+    private TileHolder holder;
     private TextMeshPro letterDisplay;
-    private TileHolder holder = null;
 
     // Start is called before the first frame update
     void Start() {
@@ -27,7 +27,12 @@ public class LetterTile : MonoBehaviour {
         Letter = letter;
     }
 
-    public void Place(TileHolder holder) {
+    public void OnPlaced(TileHolder holder) {
+        LastTileHolder = holder;
         this.holder = holder;
+    }
+
+    public override string ToString() {
+        return string.IsNullOrEmpty(Letter) ? " " : Letter;
     }
 }
