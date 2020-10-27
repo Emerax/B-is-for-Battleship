@@ -6,6 +6,14 @@ public class LetterTile : MonoBehaviour {
     public string Letter;
     public TileHolder LastTileHolder;
 
+    public bool Marked { 
+        get { 
+            return Marked; } 
+        set {
+
+        }
+    }
+
     private TileHolder holder;
     private TextMeshPro letterDisplay;
 
