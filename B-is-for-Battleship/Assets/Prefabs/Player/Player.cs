@@ -2,6 +2,7 @@
 
 public class Player : MonoBehaviour {
     private LetterTile pickedTile;
+    private TileHolder lastHolder;
 
     // Update is called once per frame
     void Update() {
@@ -45,10 +46,16 @@ public class Player : MonoBehaviour {
         if (pickedTile != null) {
             TileHolder holder = hit.collider.gameObject.GetComponent<TileHolder>();
             if (holder != null) {
+                if (lastHolder != null && lastHolder != holder) {
+                    lastHolder.OnTileStopHover();
+                }
+                lastHolder = holder;
+
                 holder.OnTileHover(pickedTile, hit);
                 if (holder.Vacant()) {
                     pickedTile.LastTileHolder = holder;
                 }
+
             }
         }
     }
