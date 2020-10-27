@@ -24,6 +24,10 @@ public class BoardTile : TileHolder {
         tile.transform.position = newPos;
     }
 
+    public override void OnTileStopHover() {
+        //Nothing yet
+    }
+
     public override bool Vacant() {
         return tile == null;
     }
