@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -259,8 +260,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006732738}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -337,6 +339,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b5a47f0cfd8cf4cafd51e9dc4cef7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1705260398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2632663659708380981, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_Name
+      value: LexiconAssetRepository
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.68593
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.018138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.66619
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515725774785978069, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.canAdd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.canRemove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.draggable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.expandable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.multipleSelection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.label.m_Text
+      value: Keys
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.headerHeight
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.footerHeight
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.slideEasing
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.verticalSpacing
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.showDefaultBackground
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.isExpanded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057488552826857269, guid: a17bbe1ac2646264786dbfd4bd65cefe,
+        type: 3}
+      propertyPath: lexiconAssets.reorderableList.isExpanded
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a17bbe1ac2646264786dbfd4bd65cefe, type: 3}
 --- !u!1 &1781019507
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +586,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -652,6 +789,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2314105841682124410, guid: e28125e69a748f441b4785c94638ed0e,
+        type: 3}
+      propertyPath: tileHoverHeight
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2314105841682124411, guid: e28125e69a748f441b4785c94638ed0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -706,11 +848,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2314105841682124410, guid: e28125e69a748f441b4785c94638ed0e,
-        type: 3}
-      propertyPath: tileHoverHeight
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28125e69a748f441b4785c94638ed0e, type: 3}
