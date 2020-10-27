@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TileTray : TileHolder {
     private readonly List<LetterTile> playerHand = new List<LetterTile>();
+    private Lexicon lexicon;
 
     public float tileOffsetY;
     public float tileOffsetX;
@@ -13,6 +14,8 @@ public class TileTray : TileHolder {
     public TilePile tilePile;
 
     private void Start() {
+        lexicon = FindObjectOfType<Lexicon>();
+        lexicon.Init(Languages.ENGLISH);
         FillHand();
     }
 
@@ -35,10 +38,24 @@ public class TileTray : TileHolder {
         PlaceTileHovering(tile, hit);
     }
 
+    public override void OnTileStopHover() {
+        ReorderTiles();
+    }
+
     private void ReorderTiles() {
         for(int i = 0; i < playerHand.Count; ++i) {
             Vector3 newPos = new Vector3((i - 3) * tileOffsetX, tileOffsetY, 0);
             playerHand[i].transform.localPosition = newPos;
+        }
+        MarkLegalWords();
+    }
+
+    private void MarkLegalWords() {
+        HashSet<int> indices = lexicon.FindWordIndices(HandToString());
+        for(int i = 0; i < playerHand.Count; ++i) {
+            if (indices.Contains(i)) {
+                //TODO: Mark the corresponding index in the hand.
+            }
         }
     }
 
@@ -85,6 +102,7 @@ public class TileTray : TileHolder {
 
     public override void RemoveTile(LetterTile tile) {
         playerHand.Remove(tile);
+        ReorderTiles();
     }
 
     private int WorldToHandPos(Vector3 pos) {
