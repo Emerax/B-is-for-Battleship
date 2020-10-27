@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// 
+/// Abstract class representing any object that can hold one or more <see cref="LetterTile"/>
 /// </summary>
 public abstract class TileHolder : MonoBehaviour {
     public float tileHoverHeight;
@@ -25,6 +25,11 @@ public abstract class TileHolder : MonoBehaviour {
     /// <param name="tile"></param>
     /// <param name="hit">Optional hit info for placing the tile</param>
     public abstract void OnTileHover(LetterTile tile, RaycastHit hit);
+
+    /// <summary>
+    /// Called when tiles cease hovering above this holder.
+    /// </summary>
+    public abstract void OnTileStopHover();
 
     /// <summary>
     /// Indicates wheter a new tile can be placed on this tile holder.
